@@ -104,10 +104,78 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("Even Sum: " + digitSumOpt(123456, "EVEN")); // Output: 12
-        System.out.println("Odd Sum:  " + digitSumOpt(123456, "ODD"));  // Output: 9
+        System.out.println("Even Sum: " + digitSumOpt(123456, "EVEN")); 
+        System.out.println("Odd Sum:  " + digitSumOpt(123456, "ODD"));  
     }
 }
 OUTPUT:
 Even Sum: 12
 Odd Sum:  9
+
+
+TASK:8
+public class Main {
+    public static long getNthFibonacci(int n) {
+        if (n <= 0) return 0;
+        if (n == 1) return 1;
+
+        long prev = 0;
+        long current = 1;
+
+        for (int i = 2; i <= n; i++) {
+            long next = prev + current;
+            prev = current;
+            current = next;
+        }
+
+        return current;
+    }
+
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Fibonacci number at position " + n + " is: " + getNthFibonacci(n));
+    }
+}
+
+OUTPUT:
+Fibonacci number at position 10 is: 55
+
+
+TASK:9
+public class Main {
+    public static boolean isPalindrome(String s) {
+        return s != null && s.equalsIgnoreCase(new StringBuilder(s).reverse().toString());
+    }
+    public static boolean isPalindrome(int n) {
+        return isPalindrome(String.valueOf(Math.abs(n)));
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("racecar")); 
+        System.out.println(isPalindrome(12321));     
+        System.out.println(isPalindrome("hello"));   
+    }
+}
+OUTPUT:
+true
+true
+false
+
+TASK:10
+import java.util.function.BiFunction;
+
+public class Main {
+    public static BiFunction<Integer, Integer, Integer> sumLastDigits = 
+        (a, b) -> Math.abs(a % 10) + Math.abs(b % 10);
+    public static int sumLastDigits(int a, int b) {
+        return Math.abs(a % 10) + Math.abs(b % 10);
+    }
+
+    public static void main(String[] args) {
+        
+        System.out.println("Sum: " + sumLastDigits.apply(26, 14)); 
+        
+}
+
+OUTPUT:
+SUM:10
