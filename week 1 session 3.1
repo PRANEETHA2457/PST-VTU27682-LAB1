@@ -1,0 +1,11 @@
+class Checker implements Comparator<Player> {
+    // Complete this method
+    public int compare(Player a, Player b) {
+        // Primary sort: Descending order by score
+        if (a.score != b.score) {
+            return b.score - a.score;
+        }
+        // Secondary sort: Ascending order alphabetically by name
+        return a.name.compareTo(b.name);
+    }
+}
